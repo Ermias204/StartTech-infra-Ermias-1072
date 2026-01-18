@@ -7,13 +7,6 @@ terraform {
       version = "~> 5.0"
     }
   }
-  
-  backend "s3" {
-    # This will be configured after initial setup
-    # bucket = "starttech-tfstate-[yourname]-[id]"
-    # key    = "terraform.tfstate"
-    # region = "eu-west-1"
-  }
 }
 
 provider "aws" {
