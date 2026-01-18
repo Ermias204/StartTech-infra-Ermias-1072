@@ -186,9 +186,9 @@ Troubleshooting
 See the application repository's RUNBOOK.md for detailed troubleshooting procedures.
 
 Related Repositories
-Application Repository: StartTech-[Name]-1072 - React frontend and Golang backend with CI/CD
+Application Repository: StartTech-Ermias-1072 - React frontend and Golang backend with CI/CD
 
-Infrastructure Repository: StartTech-infra-[Name]-1072 - This repository
+Infrastructure Repository: StartTech-infra-Ermias-1072 - This repository
 
 Support
 For issues with the infrastructure:
