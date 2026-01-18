@@ -1,0 +1,56 @@
+# Backend Error Logs
+SOURCE '/starttech/production/backend' 
+| filter @message like /error/i or @message like /exception/i 
+| stats count() by bin(5m)
+
+# Slow Requests
+SOURCE '/starttech/production/backend' 
+| parse @message /duration=(\d+)ms/ 
+| filter @duration > 1000 
+| sort @duration desc
+
+# ALB 5XX Errors
+SOURCE '/starttech/production/alb/access' 
+| filter elb_status_code >= 500 
+| stats count() by elb_status_code, target_group_arn
+
+# Top IP Addresses
+SOURCE '/starttech/production/alb/access' 
+| stats count() by client_ip 
+| sort count desc 
+| limit 10
+
+# Database Query Performance
+SOURCE '/starttech/production/backend' 
+| filter @message like /query.*time/ 
+| parse @message /query.*time=(\d+)ms/ 
+| stats avg(@time) as avg_time, max(@time) as max_time by bin(5m)
+
+# Authentication Failures
+SOURCE '/starttech/production/backend' 
+| filter @message like /auth.*fail/i or @message like /unauthorized/i 
+| stats count() by bin(5m)
+
+# Memory Usage
+SOURCE '/starttech/production/backend' 
+| filter @message like /memory/i 
+| parse @message /memory.*usage.*(\d+)%/ 
+| stats avg(@usage) as avg_memory by bin(5m)
+
+# HTTP Method Distribution
+SOURCE '/starttech/production/alb/access' 
+| stats count() by http_method 
+| sort count desc
+
+# Response Size Distribution
+SOURCE '/starttech/production/alb/access' 
+| stats avg(response_processed_bytes) as avg_size, 
+         max(response_processed_bytes) as max_size, 
+         min(response_processed_bytes) as min_size by bin(5m)
+
+# User Agent Analysis
+SOURCE '/starttech/production/alb/access' 
+| parse user_agent /(?<browser>[^\/]+)\/[^ ]+/ 
+| stats count() by browser 
+| sort count desc 
+| limit 10

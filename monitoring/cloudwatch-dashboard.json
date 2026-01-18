@@ -1,0 +1,74 @@
+{
+  "description": "CloudWatch Dashboard for StartTech Application",
+  "widgets": [
+    {
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          [ "AWS/ApplicationELB", "RequestCount", { "stat": "Sum" } ]
+        ],
+        "period": 300,
+        "stat": "Sum",
+        "region": "eu-west-1",
+        "title": "ALB Request Count"
+      }
+    },
+    {
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          [ "AWS/ApplicationELB", "HTTPCode_Target_2XX_Count", { "stat": "Sum" } ]
+        ],
+        "period": 300,
+        "stat": "Sum",
+        "region": "eu-west-1",
+        "title": "ALB 2XX Responses"
+      }
+    },
+    {
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          [ "AWS/ApplicationELB", "HTTPCode_Target_5XX_Count", { "stat": "Sum" } ]
+        ],
+        "period": 300,
+        "stat": "Sum",
+        "region": "eu-west-1",
+        "title": "ALB 5XX Errors"
+      }
+    },
+    {
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          [ "AWS/EC2", "CPUUtilization", { "stat": "Average" } ]
+        ],
+        "period": 300,
+        "stat": "Average",
+        "region": "eu-west-1",
+        "title": "EC2 CPU Utilization"
+      }
+    },
+    {
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          [ "AWS/ApplicationELB", "TargetResponseTime", { "stat": "Average" } ]
+        ],
+        "period": 300,
+        "stat": "Average",
+        "region": "eu-west-1",
+        "title": "ALB Response Time"
+      }
+    },
+    {
+      "type": "log",
+      "properties": {
+        "query": "SOURCE '/starttech/production/backend' | fields @timestamp, @message | sort @timestamp desc | limit 20",
+        "region": "eu-west-1",
+        "title": "Backend Logs",
+        "view": "table"
+      }
+    }
+  ]
+}

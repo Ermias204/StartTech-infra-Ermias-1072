@@ -1,0 +1,46 @@
+[
+  {
+    "alarm_name": "HighErrorRate",
+    "metric_name": "HTTPCode_Target_5XX_Count",
+    "namespace": "AWS/ApplicationELB",
+    "threshold": 10,
+    "period": 300,
+    "evaluation_periods": 2,
+    "comparison_operator": "GreaterThanThreshold",
+    "statistic": "Sum",
+    "description": "Monitors ALB 5XX errors"
+  },
+  {
+    "alarm_name": "HighResponseTime",
+    "metric_name": "TargetResponseTime",
+    "namespace": "AWS/ApplicationELB",
+    "threshold": 2,
+    "period": 300,
+    "evaluation_periods": 2,
+    "comparison_operator": "GreaterThanThreshold",
+    "statistic": "Average",
+    "description": "Monitors ALB response time"
+  },
+  {
+    "alarm_name": "HighCPUUtilization",
+    "metric_name": "CPUUtilization",
+    "namespace": "AWS/EC2",
+    "threshold": 80,
+    "period": 120,
+    "evaluation_periods": 2,
+    "comparison_operator": "GreaterThanThreshold",
+    "statistic": "Average",
+    "description": "Monitors EC2 CPU utilization"
+  },
+  {
+    "alarm_name": "LowRequestCount",
+    "metric_name": "RequestCount",
+    "namespace": "AWS/ApplicationELB",
+    "threshold": 10,
+    "period": 300,
+    "evaluation_periods": 2,
+    "comparison_operator": "LessThanThreshold",
+    "statistic": "Sum",
+    "description": "Monitors ALB request count"
+  }
+]
