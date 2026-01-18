@@ -1,0 +1,109 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+terraform.tfvars
+.terraform.lock.hcl
+
+# Local Terraform directories
+terraform.tfstate.d/
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Exclude all .tfstate files
+*.tfstate
+
+# Ignore override files
+*_override.tf
+*_override.tf.json
+
+# Include override files you do wish to add
+# !example_override.tf
+
+# Include tfplan files to ignore multiple plan changes
+*.tfplan
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+# Secrets and credentials
+*.pem
+*.key
+*.cert
+*.p12
+*.pfx
+*.jks
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+# Local scripts
+local-*.sh
+
+# Backup files
+*.bak
+*.backup
+
+# AWS CLI
+.aws/
+
+# SSH keys
+*.pem
+id_rsa
+id_dsa
+
+# Sensitive data
+env.sh
+secrets.sh
+credentials.*
+
+# Build artifacts
+build/
+dist/
+out/
+
+# Node modules (if any Node.js scripts)
+node_modules/
+
+# Python virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# Compiled files
+*.pyc
+__pycache__/
+
+# Documentation
+_build/
+
+# Testing
+.coverage
+.pytest_cache/
+
+# Custom
+.env.local
+.env.*.local
+
+# Keep terraform.tfvars.example but ignore actual terraform.tfvars
+!terraform.tfvars.example

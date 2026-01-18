@@ -21,8 +21,8 @@ desired_capacity  = 2
 redis_node_type       = "cache.t3.micro"
 redis_num_cache_nodes = 1
 
-# S3 Bucket Name (REPLACE WITH YOUR ACTUAL BUCKET NAME)
-s3_bucket_name = "starttech-frontend-[yourinitials]-[yourid]-app"
+
+s3_bucket_name = "starttech-frontend-Ermias-1072-app"
 
 # Note: Create terraform.tfvars from this file with actual values
 # cp terraform.tfvars.example terraform.tfvars
