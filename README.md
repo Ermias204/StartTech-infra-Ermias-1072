@@ -36,6 +36,7 @@ The Terraform configuration provisions the following AWS resources:
    - Encrypted storage (S3, ECR)
 
 ## Directory Structure
+
 StartTech-infra-Ermias-1072/
 ├── .github/workflows/
 │ └── infrastructure-deploy.yml # CI/CD for Terraform
@@ -79,7 +80,7 @@ Manual Deployment
 bash
 # Clone the repository
 git clone <repository-url>
-cd StartTech-infra-[Name]-1072
+cd StartTech-infra-Ermias-1072
 
 # Create terraform.tfvars from example
 cp terraform/terraform.tfvars.example terraform/terraform.tfvars
@@ -124,7 +125,7 @@ redis_node_type       = "cache.t3.micro"
 redis_num_cache_nodes = 1
 
 # S3 Bucket Name
-s3_bucket_name = "starttech-frontend-[initials]-[id]-app"
+s3_bucket_name = "starttech-frontend-Ermias-1072-app"
 Outputs
 After deployment, Terraform will output:
 
@@ -199,3 +200,4 @@ Review AWS CloudTrail for API errors
 Verify IAM permissions are correct
 
 Ensure VPC quotas are not exceeded
+```
